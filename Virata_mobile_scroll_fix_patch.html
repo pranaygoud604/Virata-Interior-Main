@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><body><pre>
+/* Mobile camera + scroll fix patch for Virata */
+@media (max-width:768px){
+  .s-overlay{
+    position:relative !important;
+    min-height:100dvh;
+    transform:translateY(0);
+  }
+  section{min-height:100dvh;}
+}
+function getProgress(){
+ return window.scrollY/(document.documentElement.scrollHeight-window.innerHeight);
+}
+function tick(){
+ const progress=Math.max(0,Math.min(1,getProgress()));
+ camera.position.z=18-progress*50;
+ camera.position.y=2.2;
+ lookGoal.z=camera.position.z-18;
+ lookTarget.lerp(lookGoal,0.12);
+ camera.lookAt(lookTarget);
+ requestAnimationFrame(tick);
+}
+</pre></body></html>

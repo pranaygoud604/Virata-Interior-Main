@@ -1,619 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Virata - Architecture & Interior Design Studio. Where Art Lives Here. Transform spaces with luxury design.">
-    <meta name="keywords" content="architecture, interior design, luxury design, home design, architectural services">
-    <meta name="author" content="Virata Design Studio">
-    <meta name="theme-color" content="#1B4D3E">
-    
-    <title>Virata - Architecture & Design Studio</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── SEO ── -->
+<title>Virata — Luxury Interior & Exterior Designers Hyderabad | Residential, Commercial, Villa Design</title>
+<meta name="description" content="Virata is an award-winning luxury interior & exterior design studio based in Hyderabad. Residential interior design, villa design, turnkey interiors, commercial spaces, landscape & 3D visualization. Est. 2012 · 340+ projects · 28 awards.">
+<meta name="keywords" content="Luxury Interior Designers Hyderabad, Residential Interior Design, Commercial Interiors, Villa Design, Turnkey Interiors, Exterior Design, Landscape Design, 3D Visualization, Banjara Hills, Jubilee Hills">
+<meta name="author" content="Virata Design Studio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://viratainteriors.com/">
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Virata — Luxury Interior & Exterior Designers Hyderabad">
+<meta property="og:description" content="Award-winning luxury design studio. Residential · Commercial · Villas · Turnkey · 3D Visualization. Est. 2012.">
+<meta property="og:image" content="https://viratainteriors.com/og.jpg">
+<meta property="og:url" content="https://viratainteriors.com/">
+<meta property="og:site_name" content="Virata">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Virata — Luxury Interior & Exterior Designers Hyderabad">
+<meta name="twitter:description" content="Award-winning luxury design studio. Est. 2012.">
+
+<!-- Schema.org -->
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">VIRATA</div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#services" class="nav-link">Services</a></li>
-                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-toggle" id="navToggle">☰</div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">VIRA<span>TA</span></div>
+  <div class="loader-bar"><div class="loader-fill" id="lf"></div></div>
+  <div class="loader-copy">Preparing your space…</div>
+</div>
+
+<div id="cur"></div><div id="cur-r"></div><div id="prog"></div><div id="tooltip"></div>
+<canvas id="canvas3d"></canvas>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Primary">
+  <a class="n-logo" data-sec="0" href="#hero" aria-label="Virata — home">
+    <img src="data:image/jpeg;base64,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" alt="Virata mark">
+    <span class="nlw">VIRA<span>TA</span></span>
+  </a>
+  <ul class="n-links" id="nlinks">
+    <li><a data-sec="0" class="active" href="#hero">Home</a></li>
+    <li><a data-sec="1" href="#services">Services</a></li>
+    <li><a data-sec="2" href="#portfolio">Portfolio</a></li>
+    <li><a data-sec="3" href="#stats">Trust</a></li>
+    <li><a data-sec="4" href="#testimonials">Voices</a></li>
+    <li><a data-sec="5" href="#about">Studio</a></li>
+    <li><a data-sec="6" href="#contact">Contact</a></li>
+  </ul>
+  <button class="n-cta" data-sec="6">Begin Project</button>
+  <div class="n-burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- DOTS (desktop) -->
+<div id="dots">
+  <div class="dot-w on" data-sec="0"><span class="dot-lbl">Home</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="1"><span class="dot-lbl">Services</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="2"><span class="dot-lbl">Portfolio</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="3"><span class="dot-lbl">Trust</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="4"><span class="dot-lbl">Voices</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="5"><span class="dot-lbl">Studio</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="6"><span class="dot-lbl">Contact</span><div class="dot-c"></div></div>
+</div>
+
+<div id="s-ind">01 / 07</div>
+<div id="s-label">Virata Design Studio</div>
+
+<!-- ────── HERO ────── -->
+<section class="s-overlay" id="s-hero" data-screen-label="01 Hero">
+  <div class="hero-wrap">
+    <div class="s-tag">Luxury Design Studio · Hyderabad · Est. 2012</div>
+    <h1 class="h1">Where Space<br>Becomes <em>Art</em></h1>
+    <p class="h-sub">Step inside a world of bespoke interior and exterior design. We craft environments that transcend the ordinary — with precision, with soul.</p>
+    <div class="h-btns">
+      <button class="btn-p" data-sec="2"><span>Explore Our Work</span></button>
+      <button class="btn-g" data-sec="1">Our Services</button>
+    </div>
+    <div class="hero-ticker" aria-label="Featured projects">
+      <div class="ticker-track">
+        <span>Now Shaping · <b>Cedar House</b> · Douro Valley</span>
+        <span>Just Delivered · <b>Meridian Penthouse</b> · Banjara Hills</span>
+        <span>In Concept · <b>Maison Lumière</b> · Banjara Hills</span>
+        <span>Now Shaping · <b>Cedar House</b> · Douro Valley</span>
+        <span>Just Delivered · <b>Meridian Penthouse</b> · Banjara Hills</span>
+        <span>In Concept · <b>Maison Lumière</b> · Banjara Hills</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-press" aria-label="Press features">
+    <span>Architectural Digest</span><span>Elle Decor</span><span>The Hindu</span><span>House &amp; Garden</span>
+  </div>
+  <div class="h-stats">
+    <div><div class="stat-n">340<sup style="font-size:24px;color:var(--gold-l)">+</sup></div><div class="stat-l">Projects</div></div>
+    <div><div class="stat-n">14</div><div class="stat-l">Years</div></div>
+    <div><div class="stat-n">28</div><div class="stat-l">Awards</div></div>
+  </div>
+</section>
+
+<!-- ────── SERVICES ────── -->
+<section class="s-overlay" id="s-services" data-screen-label="02 Services">
+  <div style="width:100%;max-width:1300px;margin:0 auto">
+    <div class="srv-head">
+      <div class="s-tag">Our Expertise</div>
+      <h2 class="s-h2">Crafting <em>Complete</em><br>Environments</h2>
+    </div>
+    <div class="srv-grid" id="srv-grid"></div>
+  </div>
+</section>
+
+<!-- ────── PORTFOLIO ────── -->
+<section class="s-overlay" id="s-portfolio" data-screen-label="03 Portfolio">
+  <div style="width:100%;max-width:1400px;margin:0 auto">
+    <div class="s-tag">Selected Work</div>
+    <h2 class="s-h2">Projects That<br><em>Define</em> Spaces</h2>
+    <div class="port-tags" id="port-tags">
+      <div class="p-tag on" data-cat="all">All</div>
+      <div class="p-tag" data-cat="Residential">Residential</div>
+      <div class="p-tag" data-cat="Commercial">Commercial</div>
+      <div class="p-tag" data-cat="Exterior">Exterior</div>
+      <div class="p-tag" data-cat="Luxury Villa">Luxury Villas</div>
+      <div class="p-tag" data-cat="Office">Office Spaces</div>
+    </div>
+    <div class="port-grid" id="port-grid"></div>
+  </div>
+</section>
+
+<!-- ────── STATS / TRUST ────── -->
+<section class="s-overlay" id="s-stats" data-screen-label="04 Trust">
+  <div class="stats-wrap">
+    <div class="s-tag" style="justify-content:center">By the Numbers</div>
+    <h2 class="s-h2" style="text-align:center">Trust, <em>Quantified</em></h2>
+    <div class="stats-grid">
+      <div class="stats-cell"><div class="stats-num" data-count="14"></div><div class="stats-lbl">Years of craft</div></div>
+      <div class="stats-cell"><div class="stats-num" data-count="340" data-suffix="+"></div><div class="stats-lbl">Projects delivered</div></div>
+      <div class="stats-cell"><div class="stats-num" data-count="12"></div><div class="stats-lbl">Cities served</div></div>
+      <div class="stats-cell"><div class="stats-num" data-count="98" data-suffix="%"></div><div class="stats-lbl">Repeat & referral</div></div>
+    </div>
+    <div class="client-row">
+      <div class="client-cap">Trusted by discerning clients</div>
+      <div class="client-logos">
+        <div class="client-logo">Aurum&nbsp;Estates</div>
+        <div class="client-logo">Lodha&nbsp;Group</div>
+        <div class="client-logo">Prestige</div>
+        <div class="client-logo">Sobha</div>
+        <div class="client-logo">Phoenix&nbsp;Mills</div>
+        <div class="client-logo">My&nbsp;Home</div>
+        <div class="client-logo">Aparna</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── TESTIMONIALS ────── -->
+<section class="s-overlay" id="s-testi" data-screen-label="05 Testimonials">
+  <div style="width:100%;max-width:1300px;margin:0 auto">
+    <div class="testi-head">
+      <div class="s-tag">Client Voices</div>
+      <h2 class="s-h2">Words From <em>Their</em><br>New Homes</h2>
+    </div>
+    <div class="testi-track" id="testi-track"></div>
+  </div>
+</section>
+
+<!-- ────── ABOUT / FOUNDER ────── -->
+<section class="s-overlay" id="s-about" data-screen-label="06 Studio">
+  <div class="about-wrap">
+    <div class="s-tag">The Studio</div>
+    <h2 class="s-h2">Design With<br><em>Purpose</em></h2>
+    <p>Founded in Hyderabad in 2012, Virata has grown into one of South India's most respected luxury design studios — with a reputation built on craftsmanship that speaks in every room we touch.</p>
+    <p>We believe great design is not about trends. It is about understanding the soul of a space and the lives lived within it.</p>
+    <blockquote>"Design is not just what it looks like. It is how it breathes, and how it makes you feel every single morning."</blockquote>
+    <div class="founder-card">
+      <div class="founder-portrait">AR</div>
+      <div class="founder-meta">
+        <b>Aarav Reddy</b>
+        Founder & Principal Designer<br>14 years · 340+ residences shaped
+      </div>
+    </div>
+    <div class="about-nums">
+      <div><div class="a-num-n">28</div><div class="a-num-l">Awards</div></div>
+      <div><div class="a-num-n">340+</div><div class="a-num-l">Projects</div></div>
+      <div><div class="a-num-n">12</div><div class="a-num-l">Cities</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ────── CONTACT ────── -->
+<section class="s-overlay" id="s-contact" data-screen-label="07 Contact">
+  <div style="width:100%;max-width:1300px;margin:0 auto">
+    <div class="s-tag" style="justify-content:flex-start">Begin Your Journey</div>
+    <h2 class="s-h2">Let's Create<br>Something <em>Extraordinary</em></h2>
+    <div class="con-grid" style="margin-top:38px">
+      <div class="con-form-wrap">
+        <form id="con-form" novalidate autocomplete="on">
+          <!-- honeypot -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+          <div class="con-row">
+            <div style="flex:1"><input class="c-inp" type="text" name="name" placeholder="Your name" required minlength="2"><div class="c-err" data-for="name">Please share your name</div></div>
+            <div style="flex:1"><input class="c-inp" type="email" name="email" placeholder="Email address" required><div class="c-err" data-for="email">A valid email helps us reply</div></div>
+          </div>
+          <div class="con-row">
+            <input class="c-inp" type="tel" name="phone" placeholder="Phone (optional)">
+            <input class="c-inp" type="text" name="city" placeholder="City">
+          </div>
+          <div class="con-row">
+            <select class="c-sel" name="project_type" required>
+              <option value="">Project type</option>
+              <option>Residential interior</option>
+              <option>Luxury villa</option>
+              <option>Commercial / office</option>
+              <option>Exterior &amp; façade</option>
+              <option>Turnkey project</option>
+              <option>Landscape design</option>
+              <option>3D visualization</option>
+            </select>
+            <select class="c-sel" name="budget" required>
+              <option value="">Budget range</option>
+              <option>₹15 – 30 L</option>
+              <option>₹30 – 60 L</option>
+              <option>₹60 L – 1 Cr</option>
+              <option>₹1 – 3 Cr</option>
+              <option>₹3 Cr+</option>
+            </select>
+          </div>
+          <div class="con-row">
+            <select class="c-sel" name="timeline" required>
+              <option value="">Timeline</option>
+              <option>Within 30 days</option>
+              <option>1 – 3 months</option>
+              <option>3 – 6 months</option>
+              <option>Exploring</option>
+            </select>
+            <select class="c-sel" name="hear" >
+              <option value="">How did you hear of us</option>
+              <option>Instagram</option>
+              <option>Referral</option>
+              <option>Press / Magazine</option>
+              <option>Search</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <textarea class="c-area" name="message" placeholder="Tell us about your project, timelines, dreams…" required minlength="10"></textarea>
+          <div class="c-err" data-for="message">A few sentences helps us prepare for our call</div>
+          <button class="c-sub" type="submit" id="cSub"><span>Send Inquiry →</span></button>
+          <div style="font-size:9px;letter-spacing:.16em;color:rgba(244,239,231,.35);margin-top:12px;text-align:center">Your details are confidential. We respond within one working day.</div>
+        </form>
+      </div>
+      <div class="con-info">
+        <div class="con-card">
+          <div class="con-card-lbl">Studio</div>
+          <div class="con-card-v">Road No. 12, Banjara Hills<br>Hyderabad 500034</div>
+          <div class="con-actions">
+            <a class="con-action" href="https://maps.google.com/?q=Banjara+Hills+Hyderabad" target="_blank" rel="noopener">Open in Maps</a>
+          </div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-background">
-            <svg class="botanical-svg" viewBox="0 0 400 600" preserveAspectRatio="xMidYMid slice">
-                <!-- Botanical leaf design -->
-                <path d="M 200 100 Q 180 180 200 280 Q 220 180 200 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
-                <path d="M 200 120 Q 170 180 200 280" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <path d="M 200 120 Q 230 180 200 280" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
-                <circle cx="200" cy="280" r="8" fill="rgba(255,255,255,0.15)"/>
-            </svg>
+        <div class="con-card">
+          <div class="con-card-lbl">Direct</div>
+          <div class="con-card-v"><a href="tel:+914066778899">+91 40 6677 8899</a><br><a href="/cdn-cgi/l/email-protection#05767170616c6a45736c776471646160766c626b2b6c6b"><span class="__cf_email__" data-cfemail="35464140515c5a75435c475441545150465c525b1b5c5b">[email&#160;protected]</span></a></div>
+          <div class="con-actions">
+            <a class="con-action" href="tel:+914066778899">Call Studio</a>
+            <a class="con-action" href="https://wa.me/914066778899" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
         </div>
-
-        <div class="hero-content">
-            <div class="hero-text">
-                <p class="hero-tag">WELCOME TO</p>
-                <h1 class="hero-title">Art <br> Lives <br> Here</h1>
-                <p class="hero-subtitle">OF LIVING IS PERFECTED.</p>
-                <button class="btn btn-light">Explore Our Work</button>
-            </div>
-
-            <div class="hero-image">
-                <div class="image-frame">
-                    <img src="assets/images/hero-interior.svg" alt="Interior Design" onerror="this.style.background='linear-gradient(135deg, #2C3E50 0%, #34495E 100%)'" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-            </div>
+        <div class="map-card" aria-label="Studio location map">
+          <iframe src="https://www.google.com/maps?q=Banjara+Hills+Hyderabad&output=embed&z=14" loading="lazy" title="Virata Studio on Google Maps" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="map-pin"></div>
+          <a href="https://maps.google.com/?q=Banjara+Hills+Hyderabad" target="_blank" rel="noopener">Open in Maps →</a>
         </div>
-
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor">
-                <path d="M10 3v10M10 13l3-3M10 13l-3-3" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+        <div class="con-card">
+          <div class="con-card-lbl">Follow</div>
+          <div class="social-row">
+            <a href="https://instagram.com/virata.studio" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.2 8.8 2.2 12 2.2zm0 1.97c-3.15 0-3.5 0-4.74.07-1.07.05-1.66.23-2.05.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.05-.07 1.23-.07 1.6-.07 4.73s0 3.5.07 4.74c.05 1.07.23 1.66.38 2.05.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.05.38 1.23.07 1.6.07 4.74.07s3.5 0 4.74-.07c1.07-.05 1.66-.23 2.05-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.05.07-1.23.07-1.6.07-4.74s0-3.5-.07-4.73c-.05-1.07-.23-1.66-.38-2.05-.2-.51-.44-.88-.83-1.27-.39-.39-.76-.63-1.27-.83-.39-.15-.97-.33-2.05-.38C15.5 4.17 15.15 4.17 12 4.17zm0 3.36a4.47 4.47 0 110 8.94 4.47 4.47 0 010-8.94zm0 1.97a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm4.7-2.06a1.05 1.05 0 110 2.1 1.05 1.05 0 010-2.1z"/></svg></a>
+            <a href="https://linkedin.com/company/virata-studio" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.02A2.5 2.5 0 014.98 3.5zM3 9.5h4v11H3v-11zm6.5 0h3.83v1.5h.06c.54-1.02 1.85-2.1 3.8-2.1 4.07 0 4.82 2.68 4.82 6.16V20.5h-4V15.7c0-1.14-.02-2.6-1.58-2.6-1.58 0-1.82 1.23-1.82 2.5v4.9h-4v-11z"/></svg></a>
+            <a href="https://pinterest.com/viratadesign" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.64 7.85 6.36 9.3-.09-.79-.16-2 .03-2.86.18-.78 1.18-4.96 1.18-4.96s-.3-.6-.3-1.49c0-1.4.81-2.44 1.82-2.44.86 0 1.27.64 1.27 1.42 0 .86-.55 2.15-.83 3.35-.24 1 .5 1.81 1.49 1.81 1.78 0 3.15-1.88 3.15-4.6 0-2.4-1.73-4.08-4.2-4.08-2.86 0-4.54 2.14-4.54 4.36 0 .86.33 1.79.74 2.29.08.1.09.18.07.28-.07.31-.24.97-.27 1.1-.04.17-.14.21-.32.13-1.18-.55-1.92-2.27-1.92-3.66 0-2.98 2.17-5.72 6.25-5.72 3.28 0 5.83 2.34 5.83 5.46 0 3.26-2.05 5.88-4.9 5.88-.95 0-1.85-.5-2.16-1.08l-.59 2.25c-.21.83-.79 1.86-1.18 2.49.89.27 1.82.42 2.81.42 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg></a>
+            <a href="https://wa.me/914066778899" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0012.07 0C5.46 0 .12 5.34.12 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.65a11.97 11.97 0 005.79 1.48h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.19-1.24-6.18-3.49-8.41zM12.07 21.79c-1.78 0-3.5-.48-5.01-1.39l-.36-.21-3.72.98 1-3.63-.24-.37a9.85 9.85 0 01-1.51-5.23c0-5.46 4.45-9.91 9.92-9.91a9.85 9.85 0 017.01 2.9 9.85 9.85 0 012.9 7.02c0 5.47-4.45 9.84-9.93 9.84z"/></svg></a>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Virata Studio</h2>
-                    <p>We are a team of architects and interior designers dedicated to transforming spaces into masterpieces. With over 12 years of experience, we blend timeless design principles with contemporary innovation.</p>
-                    <p>Every project is a collaboration—where your vision becomes our mission. We specialize in luxury residential, commercial, and hospitality design.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>500+</h3>
-                            <p>Projects</p>
-                        </div>
-                        <div class="stat">
-                            <h3>12+</h3>
-                            <p>Years</p>
-                        </div>
-                        <div class="stat">
-                            <h3>2000+</h3>
-                            <p>Happy Clients</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <img src="assets/images/about-image.svg" alt="About Us" onerror="this.style.background='linear-gradient(135deg, #3D5A50 0%, #2C3E50 100%)'" style="width: 100%; height: 100%; object-fit: cover;">
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- TOAST -->
+<div id="toast"><span id="toast-icon">✓</span><span id="toast-msg">Sent</span></div>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 100 100" fill="none">
-                            <rect x="20" y="30" width="60" height="50" stroke="currentColor" stroke-width="2"/>
-                            <line x1="50" y1="30" x2="50" y2="80" stroke="currentColor" stroke-width="2"/>
-                            <line x1="20" y1="55" x2="80" y2="55" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Interior Design</h3>
-                    <p>Transform your interior spaces with innovative design solutions that reflect your personality and enhance functionality.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 100 100" fill="none">
-                            <path d="M30 70 L50 30 L70 70 Z" stroke="currentColor" stroke-width="2"/>
-                            <line x1="50" y1="30" x2="50" y2="70" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3>Architecture</h3>
-                    <p>Complete architectural design from concept to execution. Creating buildings that stand as monuments of design excellence.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 100 100" fill="none">
-                            <circle cx="50" cy="50" r="30" stroke="currentColor" stroke-width="2"/>
-                            <path d="M50 30 Q70 50 50 70 Q30 50 50 30" fill="currentColor" opacity="0.3"/>
-                        </svg>
-                    </div>
-                    <h3>Landscape Design</h3>
-                    <p>Create stunning outdoor environments that complement your living spaces and connect you with nature.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- WHATSAPP FLOAT -->
+<a id="wa" href="https://wa.me/914066778899" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0012.07 0C5.46 0 .12 5.34.12 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.65a11.97 11.97 0 005.79 1.48h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.19-1.24-6.18-3.49-8.41zM12.07 21.79h-.01a9.93 9.93 0 01-5.06-1.39l-.36-.21-3.72.98 1-3.63-.24-.37a9.85 9.85 0 01-1.51-5.23c0-5.46 4.45-9.91 9.92-9.91a9.85 9.85 0 017.01 2.9 9.85 9.85 0 012.9 7.02c0 5.47-4.45 9.84-9.93 9.84zm5.45-7.42c-.3-.15-1.77-.87-2.05-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.78-1.67-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/></svg>
+</a>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2 class="section-title">Featured Works</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item large">
-                    <div class="portfolio-image">
-                        <img src="assets/images/project-1.svg" alt="Contemporary Villa" onerror="this.style.background='linear-gradient(135deg, #2C3E50 0%, #34495E 100%)'" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Contemporary Villa Retreat</h3>
-                        <p>Residential</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="assets/images/project-2.svg" alt="Modern Office" onerror="this.style.background='linear-gradient(135deg, #3D5A50 0%, #2C3E50 100%)'" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Modern Office Space</h3>
-                        <p>Commercial</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="assets/images/project-3.svg" alt="Luxury Penthouse" onerror="this.style.background='linear-gradient(135deg, #4A6E63 0%, #3D5A50 100%)'" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Luxury Penthouse</h3>
-                        <p>Residential</p>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <div class="portfolio-image">
-                        <img src="assets/images/project-4.svg" alt="Designer Showroom" onerror="this.style.background='linear-gradient(135deg, #2C3E50 0%, #34495E 100%)'" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Designer Showroom</h3>
-                        <p>Retail</p>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-cta">
-                <button class="btn btn-dark">View All Projects</button>
-            </div>
-        </div>
-    </section>
+<!-- ────── DETAIL OVERLAYS ────── -->
+<div class="detail" id="detail-project"><div class="detail-close" data-close>×</div><div class="detail-inner" id="dpi"></div></div>
+<div class="detail" id="detail-service"><div class="detail-close" data-close>×</div><div class="detail-inner" id="dsi"></div></div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="text" placeholder="Project Type">
-                        <textarea placeholder="Tell us about your project" rows="6"></textarea>
-                        <button type="submit" class="btn btn-dark">Send Message</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Contact Details</h3>
-                    <p><strong>Address:</strong> 123 Design Street, Creative City, CC 12345</p>
-                    <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                    <p><strong>Email:</strong> hello@virata.design</p>
-                    <p><strong>Hours:</strong> Mon - Fri, 9:00 AM - 6:00 PM</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ────── SCRIPTS ────── -->
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Virata Design Studio. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-            </div>
-        </div>
-    </footer>
 
-    <script src="js/main.js"></script>
-</body>
-</html>
-    
-    <title>Virata Interior & Exterior Design | Premium Design Services</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/styles.css?v=2.0">
-    <link rel="stylesheet" href="css/responsive.css?v=2.0">
-    
-    <!-- Three.js for 3D -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r158/three.min.js"></script>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230F172A' width='100' height='100'/><text x='50' y='65' font-size='60' font-weight='bold' fill='%23C9A96E' text-anchor='middle' font-family='serif'>V</text></svg>">
-</head>
-<body>
-    <!-- Header/Navigation -->
-    <header class="header sticky-header" id="header">
-        <div class="container header-content">
-            <div class="logo">VIRATA</div>
-            
-            <nav class="nav-desktop">
-                <a href="#" class="nav-link active">Home</a>
-                <a href="pages/about.html" class="nav-link">About</a>
-                <a href="pages/services.html" class="nav-link">Services</a>
-                <a href="pages/portfolio.html" class="nav-link">Portfolio</a>
-                <a href="pages/contact.html" class="nav-link">Contact</a>
-            </nav>
-            
-            <div class="header-actions">
-                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
-                    <span class="theme-icon">🌙</span>
-                </button>
-                <button class="btn btn-primary btn-sm">Book Now</button>
-                <button class="menu-toggle" id="menuToggle">☰</button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <nav class="mobile-menu" id="mobileMenu">
-            <button class="menu-close" id="menuClose">✕</button>
-            <a href="#" class="mobile-link">Home</a>
-            <a href="pages/about.html" class="mobile-link">About</a>
-            <a href="pages/services.html" class="mobile-link">Services</a>
-            <a href="pages/portfolio.html" class="mobile-link">Portfolio</a>
-            <a href="pages/contact.html" class="mobile-link">Contact</a>
-            <button class="btn btn-primary btn-full" onclick="window.location.href='pages/contact.html'">Book Consultation</button>
-        </nav>
-    </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <canvas id="hero-3d-bg" class="hero-bg-3d"></canvas>
-        <div class="hero-content hero-inner container">
-            <div class="hero-copy">
-                <div class="hero-badge">Luxury Design Studio</div>
-                <p class="accent-label">TRANSFORMING SPACES INTO SANCTUARIES</p>
-                <h1 class="hero-title">Where Design <br>Meets Passion</h1>
-                <p class="hero-subtitle">Premium interior and exterior design for discerning clients. From concept to completion, we create spaces that reflect your unique vision and lifestyle.</p>
 
-                <div class="hero-cta">
-                    <button class="btn btn-primary btn-lg">Schedule Consultation</button>
-                    <button class="btn btn-secondary btn-lg">View Portfolio</button>
-                </div>
 
-                <div class="hero-trust">
-                    <div class="hero-stat">
-                        <strong>12+</strong>
-                        <span>Years Experience</span>
-                    </div>
-                    <div class="hero-stat">
-                        <strong>500+</strong>
-                        <span>Design Projects</span>
-                    </div>
-                    <div class="hero-stat">
-                        <strong>2000+</strong>
-                        <span>Satisfied Clients</span>
-                    </div>
-                </div>
-            </div>
 
-            <div class="hero-panel">
-                <div class="hero-panel-card">
-                    <span class="panel-label">Featured project</span>
-                    <h3 class="panel-title">Contemporary Villa Retreat</h3>
-                    <div class="hero-panel-image" style="background: linear-gradient(135deg, #e8dcc8 0%, #d4c4b0 100%);"></div>
-                    <div class="hero-panel-meta">
-                        <div>
-                            <strong>Luxury Villa</strong>
-                            <span>Residential</span>
-                        </div>
-                        <div>
-                            <strong>2024</strong>
-                            <span>Complete redesign</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-scroll-indicator">
-            <span>Scroll to explore</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <polyline points="19 12 12 19 5 12"></polyline>
-            </svg>
-        </div>
-    </section>
-
-    <!-- TRUST INDICATORS -->
-    <section class="trust-indicators">
-        <div class="container">
-            <div class="indicators-grid">
-                <div class="indicator-item">
-                    <div class="indicator-number">500+</div>
-                    <div class="indicator-label">Projects Completed</div>
-                </div>
-                <div class="indicator-item">
-                    <div class="indicator-number">12+</div>
-                    <div class="indicator-label">Years Experience</div>
-                </div>
-                <div class="indicator-item">
-                    <div class="indicator-number">2000+</div>
-                    <div class="indicator-label">Happy Clients</div>
-                </div>
-                <div class="indicator-item">
-                    <div class="indicator-number">100%</div>
-                    <div class="indicator-label">Custom Solutions</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT PREVIEW -->
-    <section class="about-preview">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image section-3d">
-                    <canvas id="about-3d-scene" class="scene-canvas"></canvas>
-                </div>
-                <div class="about-content">
-                    <p class="accent-label">ABOUT VIRATA</p>
-                    <h2>Excellence in Every Detail</h2>
-                    <p>With over 12 years of experience in luxury design, we specialize in creating spaces that reflect your unique vision and lifestyle. Our approach combines timeless elegance with contemporary innovation.</p>
-                    <p>From intimate residential interiors to grand commercial spaces, we deliver exceptional results that exceed expectations. Our commitment to quality, precision, and client satisfaction has made us a trusted partner for discerning homeowners and businesses.</p>
-                    <button class="btn btn-secondary">Discover Our Story</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="services">
-        <div class="container">
-            <div class="section-header">
-                <p class="accent-label">OUR SERVICES</p>
-                <h2>Comprehensive Design Solutions</h2>
-                <p class="section-subtitle">From concept to completion, we provide end-to-end design services tailored to your vision</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon-3d">
-                        <canvas id="service-3d-1" class="icon-canvas"></canvas>
-                    </div>
-                    <h3 class="service-title">Interior Design</h3>
-                    <p class="service-desc">Complete interior design services including space planning, material selection, custom furniture, and full project management for residential and commercial spaces.</p>
-                    <a href="pages/services.html" class="btn-link">Explore Services →</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon-3d">
-                        <canvas id="service-3d-2" class="icon-canvas"></canvas>
-                    </div>
-                    <h3 class="service-title">Exterior Design</h3>
-                    <p class="service-desc">Landscape architecture, outdoor living spaces, facade design, and sustainable exterior solutions that enhance your property's curb appeal and functionality.</p>
-                    <a href="pages/services.html" class="btn-link">Explore Services →</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon-3d">
-                        <canvas id="service-3d-3" class="icon-canvas"></canvas>
-                    </div>
-                    <h3 class="service-title">Turnkey Projects</h3>
-                    <p class="service-desc">Full-service design and construction management. We coordinate all aspects of your project, ensuring seamless execution from design to completion.</p>
-                    <a href="pages/services.html" class="btn-link">Explore Services →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FEATURED PROJECTS -->
-    <section class="featured-projects">
-        <div class="container">
-            <div class="section-header">
-                <p class="accent-label">OUR PORTFOLIO</p>
-                <h2>Featured Collections</h2>
-                <p class="section-subtitle">Curated projects showcasing our design excellence and creative vision</p>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card featured-large">
-                    <canvas id="project-3d-1" class="project-canvas"></canvas>
-                    <div class="project-overlay"></div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <p class="project-category">RESIDENTIAL</p>
-                            <span class="project-year">2024</span>
-                        </div>
-                        <h3 class="project-title">Contemporary Luxury Villa</h3>
-                        <p class="project-desc">A stunning residential transformation combining modern aesthetics with timeless elegance</p>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <canvas id="project-3d-2" class="project-canvas"></canvas>
-                    <div class="project-overlay"></div>
-                    <div class="project-content">
-                        <p class="project-category">COMMERCIAL</p>
-                        <h3 class="project-title">Elite Office Space</h3>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <canvas id="project-3d-3" class="project-canvas"></canvas>
-                    <div class="project-overlay"></div>
-                    <div class="project-content">
-                        <p class="project-category">EXTERIOR</p>
-                        <h3 class="project-title">Sky Terrace Design</h3>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <canvas id="project-3d-4" class="project-canvas"></canvas>
-                    <div class="project-overlay"></div>
-                    <div class="project-content">
-                        <p class="project-category">LANDSCAPE</p>
-                        <h3 class="project-title">Botanical Haven</h3>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <canvas id="project-3d-5" class="project-canvas"></canvas>
-                    <div class="project-overlay"></div>
-                    <div class="project-content">
-                        <p class="project-category">RESIDENTIAL</p>
-                        <h3 class="project-title">Urban Sanctuary</h3>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="projects-cta">
-                <button class="btn btn-secondary btn-lg">Explore Full Portfolio</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY CHOOSE US -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="why-grid">
-                <div class="why-content">
-                    <p class="accent-label">WHY CHOOSE US</p>
-                    <h2>Design Excellence, Every Time</h2>
-                    <p>With over 12 years in luxury design, we've perfected the art of transforming spaces. Our team combines aesthetic vision with technical expertise to deliver results that exceed expectations.</p>
-                    
-                    <div class="features-list">
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Personalized design approach tailored to your vision</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Premium materials and masterful craftsmanship</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>On-time, on-budget delivery guaranteed</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-icon">✓</span>
-                            <p>Dedicated project management throughout</p>
-                        </div>
-                    </div>
-                    
-                    <button class="btn btn-primary">Get Started Today</button>
-                </div>
-                
-                <div class="why-images">
-                    <div class="image-grid">
-                        <div class="placeholder-image">Project 1</div>
-                        <div class="placeholder-image">Project 2</div>
-                        <div class="placeholder-image">Project 3</div>
-                        <div class="placeholder-image">Project 4</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Client Experiences</h2>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-quote">"Virata exceeded our expectations in every way. Their attention to detail and commitment to quality resulted in a home that perfectly captures our vision. The entire process was seamless and professional."</p>
-                    <p class="testimonial-author">Sarah Mitchell</p>
-                    <p class="testimonial-role">Villa Owner, Hyderabad</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-quote">"Working with Virata was a transformative experience. They brought creativity and expertise to our commercial space that elevated our brand and improved our business environment."</p>
-                    <p class="testimonial-author">Rajesh Kumar</p>
-                    <p class="testimonial-role">Business Owner</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-quote">"The team's dedication to understanding our needs and delivering exceptional results made all the difference. Our home now reflects our lifestyle perfectly."</p>
-                    <p class="testimonial-author">Priya Sharma</p>
-                    <p class="testimonial-role">Homeowner</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA SECTION -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Transform Your Space?</h2>
-            <p>Let's discuss your vision and create something extraordinary together</p>
-            <button class="btn btn-primary btn-lg">Schedule Consultation</button>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3 class="footer-title">VIRATA</h3>
-                    <p>Luxury interior and exterior design studio specializing in bespoke solutions for discerning clients.</p>
-                    <p class="footer-sub">Hyderabad, Telangana, India</p>
-                </div>
-
-                <div class="footer-col">
-                    <h4 class="footer-heading">Services</h4>
-                    <a href="pages/services.html" class="footer-link">Interior Design</a>
-                    <a href="pages/services.html" class="footer-link">Exterior Design</a>
-                    <a href="pages/services.html" class="footer-link">Turnkey Projects</a>
-                    <a href="pages/services.html" class="footer-link">Consultation</a>
-                </div>
-
-                <div class="footer-col">
-                    <h4 class="footer-heading">Company</h4>
-                    <a href="pages/about.html" class="footer-link">About Us</a>
-                    <a href="pages/portfolio.html" class="footer-link">Portfolio</a>
-                    <a href="pages/contact.html" class="footer-link">Contact</a>
-                    <a href="#" class="footer-link">Careers</a>
-                </div>
-
-                <div class="footer-col">
-                    <h4 class="footer-heading">Connect</h4>
-                    <a href="tel:+919876543210" class="footer-link">+91 9876 543 210</a>
-                    <a href="mailto:hello@virata.in" class="footer-link">hello@virata.in</a>
-                    <p class="footer-sub">Available Mon-Sat, 9AM-6PM</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Virata Interior & Exterior. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="js/main.js" defer></script>
+<script src="app.js"></script>
 </body>
 </html>

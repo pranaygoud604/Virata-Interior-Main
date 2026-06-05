@@ -258,15 +258,62 @@ body.is-mobile #cur,body.is-mobile #cur-r{display:none}
 .c-wa:hover{background:rgba(37,211,102,.08);border-color:#25D366}
 .c-wa svg{width:14px;height:14px;fill:currentColor}
 @media(max-width:600px){.c-actions{flex-direction:column}}
-.con-info{display:flex;flex-direction:column;gap:22px}
-.con-card{padding:22px;background:rgba(255,255,255,.025);border:1px solid rgba(201,169,110,.12)}
-.con-card-lbl{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(244,239,231,.4);margin-bottom:8px}
-.con-card-v{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--ink)}
-.con-card-v a{color:var(--ink);transition:color .3s}
-.con-card-v a:hover{color:var(--gold)}
-.con-actions{display:flex;gap:10px;margin-top:14px}
-.con-action{flex:1;padding:12px;border:1px solid rgba(201,169,110,.25);font-size:9px;letter-spacing:.18em;text-transform:uppercase;text-align:center;color:rgba(244,239,231,.7);transition:all .3s;cursor:pointer}
-.con-action:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,169,110,.05)}
+/* ── STUDIO LOCATION — luxury redesign ── */
+.studio-loc{display:flex;flex-direction:column;gap:0;position:relative}
+.sl-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.sl-rule{flex:none;display:block;width:28px;height:1px;background:linear-gradient(90deg,#B08D57,rgba(176,141,87,0))}
+.sl-eyebrow-text{font-size:8px;letter-spacing:.38em;text-transform:uppercase;color:#B08D57;font-family:'Jost',sans-serif;font-weight:400}
+.sl-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.2vw,42px);font-weight:300;line-height:1.08;color:#F5F5F5;margin-bottom:16px;letter-spacing:-.01em}
+.sl-headline em{color:#B08D57;font-style:italic;display:block}
+.sl-desc{font-size:11.5px;color:#A0A0A0;font-weight:300;line-height:1.85;margin-bottom:32px;font-family:'Jost',sans-serif}
+/* Address block */
+.sl-addr{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(176,141,87,.12);position:relative}
+.sl-addr::before{content:'';position:absolute;left:0;bottom:-1px;width:40px;height:1px;background:#B08D57}
+.sl-addr-line{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;color:#E8E2D9;line-height:1.75;letter-spacing:.015em}
+.sl-addr-city{color:#B08D57;letter-spacing:.04em}
+/* Hours + contact meta */
+.sl-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(176,141,87,.08)}
+.sl-meta-lbl{font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:rgba(160,160,160,.65);margin-bottom:10px;font-family:'Jost',sans-serif}
+.sl-meta-val{font-family:'Cormorant Garamond',serif;font-size:14px;color:#F5F5F5;font-weight:300;line-height:1.5}
+.sl-meta-time{font-family:'Jost',sans-serif;font-size:10px;color:#A0A0A0;font-weight:300;letter-spacing:.06em;margin-top:3px}
+.sl-link{display:block;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:300;color:#A0A0A0;transition:color .4s,letter-spacing .4s;line-height:1.8;position:relative;width:fit-content}
+.sl-link::after{content:'';position:absolute;left:0;bottom:-1px;width:0;height:1px;background:#B08D57;transition:width .45s cubic-bezier(.16,1,.3,1)}
+.sl-link:hover{color:#F5F5F5;letter-spacing:.01em}
+.sl-link:hover::after{width:100%}
+/* CTA row */
+.sl-cta{display:flex;gap:10px;margin-bottom:28px}
+.sl-btn{flex:1;padding:13px 10px;border:1px solid rgba(176,141,87,.25);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;text-align:center;color:rgba(244,239,231,.65);transition:all .4s;cursor:pointer;font-family:'Jost',sans-serif;background:transparent;position:relative;overflow:hidden}
+.sl-btn::before{content:'';position:absolute;inset:0;background:rgba(176,141,87,.06);transform:translateX(-101%);transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.sl-btn:hover{border-color:#B08D57;color:#F5F5F5}
+.sl-btn:hover::before{transform:none}
+/* City grid visual */
+.sl-visual{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border:1px solid rgba(176,141,87,.14);background:#050505;margin-top:4px}
+.sl-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sl-mouse-glow{position:absolute;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(176,141,87,.1) 0%,transparent 70%);pointer-events:none;transform:translate(-50%,-50%) scale(0);transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .6s;opacity:0;z-index:1}
+.sl-visual:hover .sl-mouse-glow{transform:translate(-50%,-50%) scale(1);opacity:1}
+.sl-glass{position:absolute;bottom:0;left:0;right:0;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);background:rgba(5,5,5,.58);border-top:1px solid rgba(176,141,87,.2);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;z-index:2}
+.sl-glass-label{font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:#A0A0A0;font-family:'Jost',sans-serif;margin-bottom:5px}
+.sl-glass-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:300;color:#F5F5F5;line-height:1}
+.sl-gps-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.sl-gps-pin{position:relative;width:10px;height:10px;align-self:flex-end}
+.sl-gps-dot{width:6px;height:6px;border-radius:50%;background:#B08D57;position:absolute;top:2px;left:2px}
+.sl-gps-ring{position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(176,141,87,.45);animation:gps-ring 2.4s ease-out infinite}
+.sl-gps-ring-2{animation-delay:.8s;border-color:rgba(176,141,87,.2)}
+.sl-coords{font-family:'Jost',sans-serif;font-size:9px;color:#A0A0A0;letter-spacing:.1em;text-align:right;line-height:1.6}
+@keyframes gps-ring{0%{transform:scale(1);opacity:1}100%{transform:scale(2.8);opacity:0}}
+/* Corner accent marks */
+.sl-corner{position:absolute;width:14px;height:14px;z-index:3}
+.sl-corner-tl{top:10px;left:10px;border-top:1px solid #B08D57;border-left:1px solid #B08D57}
+.sl-corner-br{bottom:47px;right:10px;border-bottom:1px solid #B08D57;border-right:1px solid #B08D57}
+/* Social row */
+.sl-social{display:flex;gap:18px;padding-top:24px;border-top:1px solid rgba(176,141,87,.08)}
+.sl-soc-lbl{font-size:8px;letter-spacing:.32em;text-transform:uppercase;color:rgba(160,160,160,.55);font-family:'Jost',sans-serif;align-self:center;margin-right:4px}
+.sl-soc-link{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(176,141,87,.15);color:rgba(244,239,231,.45);transition:all .4s}
+.sl-soc-link svg{width:13px;height:13px;fill:currentColor}
+.sl-soc-link:hover{border-color:#B08D57;color:#B08D57;background:rgba(176,141,87,.06)}
+/* Reveal animation */
+.sl-reveal{opacity:0;transform:translateY(22px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);transition-delay:var(--sd,0s)}
+.sl-reveal.in{opacity:1;transform:none}
 
 .social-row{display:flex;gap:10px;margin-top:14px}
 .social-row a{width:34px;height:34px;border:1px solid rgba(201,169,110,.25);display:flex;align-items:center;justify-content:center;color:rgba(201,169,110,.7);transition:all .3s}
@@ -653,28 +700,83 @@ body.is-mobile #cur,body.is-mobile #cur-r{display:none}
           <div style="font-size:9px;letter-spacing:.16em;color:rgba(244,239,231,.35);margin-top:12px;text-align:center">Your details are confidential. We respond within one working day.</div>
         </form>
       </div>
-      <div class="con-info">
-        <div class="con-card">
-          <div class="con-card-lbl">Studio</div>
-          <div class="con-card-v">12th Floor, Vasavi Skycity<br>Gachibowli, Hyderabad — 500 032<br><span style="font-size:13px;color:rgba(244,239,231,.42);font-family:'Jost',sans-serif">Mon–Sat, 9 AM–6 PM</span></div>
+      <!-- ── STUDIO LOCATION — luxury panel ── -->
+      <div class="studio-loc" id="studio-loc">
+
+        <!-- Eyebrow + Headline -->
+        <div class="sl-reveal" style="--sd:0s">
+          <div class="sl-eyebrow">
+            <span class="sl-rule"></span>
+            <span class="sl-eyebrow-text">Studio Location</span>
+          </div>
+          <h3 class="sl-headline">Hyderabad<em>Design Studio</em></h3>
+          <p class="sl-desc">Where vision becomes space. Our Financial District studio is where every project is conceived, refined, and delivered — from brief to handover.</p>
         </div>
-        <div class="con-card">
-          <div class="con-card-lbl">Direct</div>
-          <div class="con-card-v"><a id="lnk-tel" href="tel:+919390765984">+91 93907 65984</a><br><a id="lnk-mail" href="mailto:info@viratainteriors.com">info@viratainteriors.com</a></div>
-          <div class="con-actions">
-            <a id="lnk-call" class="con-action" href="tel:+919390765984">Call studio</a>
-            <a id="lnk-wa" class="con-action" href="#" target="_blank" rel="noopener">WhatsApp</a>
+
+        <!-- Address -->
+        <div class="sl-addr sl-reveal" style="--sd:.12s">
+          <div class="sl-addr-line">12th Floor, Vasavi Skycity</div>
+          <div class="sl-addr-line">Financial District, Gachibowli</div>
+          <div class="sl-addr-line sl-addr-city">Hyderabad &nbsp;500 032</div>
+        </div>
+
+        <!-- Hours + Contact -->
+        <div class="sl-meta sl-reveal" style="--sd:.22s">
+          <div>
+            <div class="sl-meta-lbl">Office Hours</div>
+            <div class="sl-meta-val">Monday – Saturday</div>
+            <div class="sl-meta-time">9:00 AM – 6:00 PM IST</div>
+          </div>
+          <div>
+            <div class="sl-meta-lbl">Direct</div>
+            <a id="lnk-tel" class="sl-link" href="tel:+919390765984">+91 93907 65984</a>
+            <a id="lnk-mail" class="sl-link" href="mailto:info@viratainteriors.com">info@viratainteriors.com</a>
           </div>
         </div>
-        <div class="con-card">
-          <div class="con-card-lbl">Follow</div>
-          <!-- TODO: replace with real Instagram + LinkedIn handles -->
-          <div class="social-row">
-            <a id="soc-ig" href="#" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.2 8.8 2.2 12 2.2zm0 1.97c-3.15 0-3.5 0-4.74.07-1.07.05-1.66.23-2.05.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.05-.07 1.23-.07 1.6-.07 4.73s0 3.5.07 4.74c.05 1.07.23 1.66.38 2.05.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.05.38 1.23.07 1.6.07 4.74.07s3.5 0 4.74-.07c1.07-.05 1.66-.23 2.05-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.05.07-1.23.07-1.6.07-4.74s0-3.5-.07-4.73c-.05-1.07-.23-1.66-.38-2.05-.2-.51-.44-.88-.83-1.27-.39-.39-.76-.63-1.27-.83-.39-.15-.97-.33-2.05-.38C15.5 4.17 15.15 4.17 12 4.17zm0 3.36a4.47 4.47 0 110 8.94 4.47 4.47 0 010-8.94zm0 1.97a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm4.7-2.06a1.05 1.05 0 110 2.1 1.05 1.05 0 010-2.1z"/></svg></a>
-            <a id="soc-li" href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.02A2.5 2.5 0 014.98 3.5zM3 9.5h4v11H3v-11zm6.5 0h3.83v1.5h.06c.54-1.02 1.85-2.1 3.8-2.1 4.07 0 4.82 2.68 4.82 6.16V20.5h-4V15.7c0-1.14-.02-2.6-1.58-2.6-1.58 0-1.82 1.23-1.82 2.5v4.9h-4v-11z"/></svg></a>
-            <a id="soc-wa" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0012.07 0C5.46 0 .12 5.34.12 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.65a11.97 11.97 0 005.79 1.48h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.19-1.24-6.18-3.49-8.41zM12.07 21.79c-1.78 0-3.5-.48-5.01-1.39l-.36-.21-3.72.98 1-3.63-.24-.37a9.85 9.85 0 01-1.51-5.23c0-5.46 4.45-9.91 9.92-9.91a9.85 9.85 0 017.01 2.9 9.85 9.85 0 012.9 7.02c0 5.47-4.45 9.84-9.93 9.84z"/></svg></a>
+
+        <!-- CTAs -->
+        <div class="sl-cta sl-reveal" style="--sd:.3s">
+          <a id="lnk-call" class="sl-btn" href="tel:+919390765984">Call Studio</a>
+          <a id="lnk-wa" class="sl-btn" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+
+        <!-- City Grid Visual -->
+        <div class="sl-visual sl-reveal" style="--sd:.38s" id="sl-visual">
+          <canvas class="sl-canvas" id="sl-canvas"></canvas>
+          <div class="sl-mouse-glow" id="sl-glow"></div>
+          <div class="sl-corner sl-corner-tl"></div>
+          <div class="sl-corner sl-corner-br"></div>
+          <!-- Glassmorphism card -->
+          <div class="sl-glass">
+            <div>
+              <div class="sl-glass-label">Gachibowli · Financial District</div>
+              <div class="sl-glass-name">Vasavi Skycity</div>
+            </div>
+            <div class="sl-gps-wrap">
+              <div class="sl-gps-pin">
+                <div class="sl-gps-dot"></div>
+                <div class="sl-gps-ring"></div>
+                <div class="sl-gps-ring sl-gps-ring-2"></div>
+              </div>
+              <div class="sl-coords">17.4435° N<br>78.3772° E</div>
+            </div>
           </div>
         </div>
+
+        <!-- Social -->
+        <div class="sl-social sl-reveal" style="--sd:.46s">
+          <span class="sl-soc-lbl">Follow</span>
+          <a id="soc-ig" class="sl-soc-link" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.2 15.58 2.2 15.2 2.2 12s0-3.58.07-4.85c.05-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.2 8.8 2.2 12 2.2zm0 1.97c-3.15 0-3.5 0-4.74.07-1.07.05-1.66.23-2.05.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.05-.07 1.23-.07 1.6-.07 4.73s0 3.5.07 4.74c.05 1.07.23 1.66.38 2.05.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.05.38 1.23.07 1.6.07 4.74.07s3.5 0 4.74-.07c1.07-.05 1.66-.23 2.05-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.05.07-1.23.07-1.6.07-4.74s0-3.5-.07-4.73c-.05-1.07-.23-1.66-.38-2.05-.2-.51-.44-.88-.83-1.27-.39-.39-.76-.63-1.27-.83-.39-.15-.97-.33-2.05-.38C15.5 4.17 15.15 4.17 12 4.17zm0 3.36a4.47 4.47 0 110 8.94 4.47 4.47 0 010-8.94zm0 1.97a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm4.7-2.06a1.05 1.05 0 110 2.1 1.05 1.05 0 010-2.1z"/></svg>
+          </a>
+          <a id="soc-li" class="sl-soc-link" href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 11-.01 5.02A2.5 2.5 0 014.98 3.5zM3 9.5h4v11H3v-11zm6.5 0h3.83v1.5h.06c.54-1.02 1.85-2.1 3.8-2.1 4.07 0 4.82 2.68 4.82 6.16V20.5h-4V15.7c0-1.14-.02-2.6-1.58-2.6-1.58 0-1.82 1.23-1.82 2.5v4.9h-4v-11z"/></svg>
+          </a>
+          <a id="soc-wa" class="sl-soc-link" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0012.07 0C5.46 0 .12 5.34.12 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.65a11.97 11.97 0 005.79 1.48h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.19-1.24-6.18-3.49-8.41z"/></svg>
+          </a>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1498,6 +1600,180 @@ if(!isMobile){
   const mo = new MutationObserver(()=>bindMagnetic());
   mo.observe(document.body, {childList:true, subtree:true});
 }
+
+/* ══════════════════════════════════════════════
+   STUDIO LOCATION — luxury canvas + animations
+   ══════════════════════════════════════════════ */
+(function studioLoc(){
+  /* ── Scroll reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, {threshold:.12});
+  document.querySelectorAll('.sl-reveal').forEach(el => io.observe(el));
+
+  /* ── City grid canvas ── */
+  const canvas = document.getElementById('sl-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, raf;
+
+  const GOLD  = 'rgba(176,141,87,';
+  const WHITE = 'rgba(245,245,245,';
+
+  // Gachibowli-inspired grid — irregular blocks
+  const roads = {
+    h: [0.08,0.18,0.32,0.44,0.56,0.68,0.78,0.88],
+    v: [0.06,0.16,0.28,0.40,0.52,0.64,0.76,0.88,0.95]
+  };
+  // Bold arteries
+  const artery_h = [0.32,0.56];
+  const artery_v = [0.40,0.64];
+  // Studio pin position
+  const PIN = {x:0.52, y:0.44};
+
+  let particles = [];
+  let pinPulse = 0;
+  let t = 0;
+
+  function init(){
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = canvas.width  = rect.width  * devicePixelRatio;
+    H = canvas.height = rect.height * devicePixelRatio;
+    canvas.style.width  = rect.width  + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.scale(devicePixelRatio, devicePixelRatio);
+    W /= devicePixelRatio; H /= devicePixelRatio;
+
+    particles = Array.from({length:18}, () => ({
+      x: Math.random(), y: Math.random(),
+      vx:(Math.random()-.5)*.00015, vy:(Math.random()-.5)*.00015,
+      r: Math.random()*.9+.3, a: Math.random()*.5+.1
+    }));
+  }
+
+  function draw(){
+    t += .008;
+    ctx.clearRect(0, 0, W, H);
+
+    // Background vignette
+    const vg = ctx.createRadialGradient(W*PIN.x,H*PIN.y,0,W*PIN.x,H*PIN.y,W*.7);
+    vg.addColorStop(0,'rgba(176,141,87,.04)');
+    vg.addColorStop(1,'rgba(5,5,5,0)');
+    ctx.fillStyle = vg;
+    ctx.fillRect(0,0,W,H);
+
+    // Horizontal roads
+    roads.h.forEach(r => {
+      const y = r * H;
+      const isArtery = artery_h.includes(r);
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(W, y);
+      ctx.strokeStyle = isArtery ? GOLD+'.22)' : GOLD+'.07)';
+      ctx.lineWidth = isArtery ? 1 : .5;
+      ctx.stroke();
+    });
+
+    // Vertical roads
+    roads.v.forEach(r => {
+      const x = r * W;
+      const isArtery = artery_v.includes(r);
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, H);
+      ctx.strokeStyle = isArtery ? GOLD+'.22)' : GOLD+'.07)';
+      ctx.lineWidth = isArtery ? 1 : .5;
+      ctx.stroke();
+    });
+
+    // Intersection nodes
+    roads.h.forEach(rh => {
+      roads.v.forEach(rv => {
+        const x = rv * W, y = rh * H;
+        const isMain = artery_h.includes(rh) && artery_v.includes(rv);
+        ctx.beginPath();
+        ctx.arc(x, y, isMain ? 1.8 : .8, 0, Math.PI*2);
+        ctx.fillStyle = isMain ? GOLD+'.55)' : GOLD+'.2)';
+        ctx.fill();
+      });
+    });
+
+    // Floating particles (city lights)
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy;
+      if(p.x<0||p.x>1) p.vx *= -1;
+      if(p.y<0||p.y>1) p.vy *= -1;
+      const flicker = Math.sin(t*3 + p.a*10) * .15 + .85;
+      ctx.beginPath();
+      ctx.arc(p.x*W, p.y*H, p.r, 0, Math.PI*2);
+      ctx.fillStyle = WHITE+(p.a * flicker)+')';
+      ctx.fill();
+    });
+
+    // Studio pin glow
+    pinPulse = (pinPulse + .018) % 1;
+    const px = PIN.x * W, py = PIN.y * H;
+
+    // Outer pulse rings
+    [0, .33, .66].forEach(offset => {
+      const phase = (pinPulse + offset) % 1;
+      const radius = phase * 32;
+      const alpha  = (1 - phase) * .6;
+      ctx.beginPath();
+      ctx.arc(px, py, radius, 0, Math.PI*2);
+      ctx.strokeStyle = GOLD+alpha+')';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // Pin core
+    const pinGlow = ctx.createRadialGradient(px,py,0,px,py,14);
+    pinGlow.addColorStop(0,'rgba(176,141,87,.9)');
+    pinGlow.addColorStop(.4,'rgba(176,141,87,.3)');
+    pinGlow.addColorStop(1,'rgba(176,141,87,0)');
+    ctx.fillStyle = pinGlow;
+    ctx.beginPath();
+    ctx.arc(px, py, 14, 0, Math.PI*2);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(px, py, 3.5, 0, Math.PI*2);
+    ctx.fillStyle = '#B08D57';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(px, py, 5.5, 0, Math.PI*2);
+    ctx.strokeStyle = 'rgba(176,141,87,.5)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Scan line sweep
+    const scanX = ((Math.sin(t*.4)+1)/2) * W;
+    const scanGrad = ctx.createLinearGradient(scanX-60, 0, scanX+60, 0);
+    scanGrad.addColorStop(0,'rgba(176,141,87,0)');
+    scanGrad.addColorStop(.5,'rgba(176,141,87,.04)');
+    scanGrad.addColorStop(1,'rgba(176,141,87,0)');
+    ctx.fillStyle = scanGrad;
+    ctx.fillRect(0, 0, W, H);
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  /* ── Mouse-follow glow ── */
+  const visual = document.getElementById('sl-visual');
+  const glow   = document.getElementById('sl-glow');
+  if(visual && glow){
+    visual.addEventListener('mousemove', e => {
+      const r = visual.getBoundingClientRect();
+      glow.style.left = (e.clientX - r.left) + 'px';
+      glow.style.top  = (e.clientY - r.top)  + 'px';
+    });
+  }
+
+  /* ── Init + resize ── */
+  const ro = new ResizeObserver(() => { if(raf) cancelAnimationFrame(raf); init(); draw(); });
+  ro.observe(canvas.parentElement);
+  init(); draw();
+})();
 </script>
 
 </body>

@@ -547,6 +547,99 @@ a.cx-topo-glass:hover .cx-topo-map-hint{color:#B08D57}
   .s-h2{font-size:30px}
   .detail{padding:80px 22px 60px}
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE PREMIUM REDESIGN  320 – 768px
+   Single-column · 80px fixed header · 24px card padding
+   Reference: ICG · Apple · Foster + Partners · Aman Resorts
+   ═══════════════════════════════════════════════════════════════ */
+@media(max-width:768px){
+  html,body{overflow-x:hidden}
+
+  /* ── Fixed glass header — explicit 80px ── */
+  #nav{height:80px;padding:0 24px;display:flex;align-items:center;background:rgba(9,9,7,.94);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(201,169,110,.07)}
+  .n-logo{font-size:19px;letter-spacing:.15em}
+  .n-links{top:80px;padding:28px 24px 20px;gap:20px}
+  .n-links a{font-size:11px;letter-spacing:.2em}
+
+  /* ── All overlays: consistent 96/24/100 padding ── */
+  .s-overlay{padding:96px 24px 100px}
+  #s-ind,#s-label{display:none}
+
+  /* ── Common heading scale ── */
+  .s-h2{font-size:clamp(26px,7.5vw,38px);line-height:1.08}
+  .s-tag{font-size:9px;margin-bottom:16px}
+
+  /* ── HERO ── */
+  #s-hero{align-items:flex-start;padding-bottom:100px}
+  .hero-wrap{max-width:100%}
+  .h1{font-size:clamp(32px,9.5vw,46px);line-height:1.06;margin-bottom:18px}
+  .h-sub{font-size:13px;line-height:1.85;max-width:100%;margin-bottom:28px}
+  .h-btns{flex-direction:column;gap:10px}
+  .btn-p,.btn-g{width:100%;padding:17px 24px;display:flex;align-items:center;justify-content:center;text-align:center}
+  /* Hero proof: 3-column row with dividers */
+  .hero-proof{display:grid;grid-template-columns:repeat(3,1fr);position:static;right:auto;bottom:auto;gap:0;margin-top:40px;border-top:1px solid rgba(201,169,110,.1);justify-content:unset;flex-wrap:unset}
+  .hp-item{max-width:none;flex:none;padding:18px 8px 0;border-right:1px solid rgba(201,169,110,.08);text-align:center}
+  .hp-item:last-child{border-right:none}
+  .hp-n{font-size:22px}
+  .hp-l{font-size:7.5px;letter-spacing:.1em;line-height:1.5}
+
+  /* ── SERVICES ── */
+  #s-services{justify-content:flex-start}
+  .srv-head{margin-bottom:36px}
+  .srv-item{padding:24px}
+  .srv-item h4{font-size:14px}
+  .srv-item p{font-size:12px;line-height:1.7}
+
+  /* ── PORTFOLIO: full-width cards, horizontal filter scroll ── */
+  #s-portfolio{justify-content:flex-start;align-items:flex-start;padding-bottom:100px}
+  .port-tags{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-right:-24px;padding-right:24px}
+  .port-tags::-webkit-scrollbar{display:none}
+  .p-tag{flex:none;white-space:nowrap;font-size:8.5px;padding:7px 14px}
+  .port-grid{grid-template-columns:1fr;max-height:none;gap:16px;padding-right:0}
+  .port-card{border-radius:20px}
+  .port-img{aspect-ratio:3/2}
+  .port-meta{padding:18px 20px 16px}
+  .port-card h5{font-size:18px}
+
+  /* ── CAPABILITIES ── */
+  .cap-grid{grid-template-columns:1fr}
+  .cap-cell{padding:24px}
+  .cap-n{font-size:28px;margin-bottom:10px}
+  .cap-t{font-size:13px}
+  .cap-d{font-size:12px}
+  .sector-row{margin-top:36px;padding-top:28px}
+  .sector-list{justify-content:flex-start;gap:8px}
+  .sector-pill{font-size:9px;padding:8px 14px}
+
+  /* ── PROCESS: full-width cards, vertical timeline feel ── */
+  #s-testi{justify-content:flex-start}
+  .testi-head{margin-bottom:28px}
+  .hww-grid{gap:12px}
+  .hww-card{padding:24px;border-radius:20px}
+  .hww-step{font-size:10px;letter-spacing:.16em;margin-bottom:12px}
+  .hww-card h5{font-size:20px;margin-bottom:10px}
+  .hww-card p{font-size:12px;line-height:1.8}
+  .hww-card ul{margin-top:12px;padding-top:12px}
+  .hww-card li{font-size:11px;padding:3px 0}
+
+  /* ── STUDIO / ABOUT ── */
+  #s-about{justify-content:flex-start;align-items:flex-start}
+  .about-wrap{max-width:100%}
+  .about-wrap p{font-size:13px;line-height:1.9;margin-bottom:12px}
+  .about-wrap blockquote{font-size:16px;line-height:1.5;padding-left:16px;margin:20px 0}
+  .studio-tenets{grid-template-columns:1fr;gap:10px;margin-top:20px}
+  .st-card{padding:20px;border-radius:16px}
+  .st-card b{font-size:16px;margin-bottom:4px}
+  .st-card span{font-size:12px}
+
+  /* ── CONTACT: reset excess bottom padding (overlay handles clearance) ── */
+  .cx-wrap{padding-bottom:20px}
+
+  /* ── WhatsApp: compact pill at bottom-right, never full-width ── */
+  #cx-wa-mob{left:auto;right:20px;bottom:24px;width:auto;height:44px;padding:0 20px;border-radius:22px;font-size:8.5px;letter-spacing:.16em;gap:8px;box-shadow:0 4px 20px rgba(37,211,102,.25)}
+  #cx-wa-mob svg{width:16px;height:16px}
+}
 </style>
 </head>
 <body>

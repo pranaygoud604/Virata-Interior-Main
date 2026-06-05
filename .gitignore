@@ -1,0 +1,6 @@
+# Raw source images (organized copies live in assets/portfolio/)
+assets/*.jpg
+assets/*.jpeg
+assets/*.JPG
+assets/*.png
+assets/*.PNG

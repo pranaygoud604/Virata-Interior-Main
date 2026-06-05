@@ -379,6 +379,91 @@ a.cx-topo-glass:hover .cx-topo-map-hint{color:#B08D57}
 .cx-err{font-size:9px;color:#e07a6e;margin-top:4px;display:none;letter-spacing:.08em;padding-left:2px}
 .cx-err.show{display:block}
 
+/* ══════════════════════════════════════════
+   MOBILE WA PINNED BAR
+   ══════════════════════════════════════════ */
+#cx-wa-mob{display:none;position:fixed;bottom:20px;left:20px;right:20px;z-index:1000;height:54px;background:#25D366;border-radius:8px;align-items:center;justify-content:center;gap:10px;color:#fff;font-family:'Jost',sans-serif;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.3);transition:background .3s;-webkit-tap-highlight-color:transparent}
+#cx-wa-mob svg{width:18px;height:18px;fill:#fff;flex-shrink:0}
+#cx-wa-mob:hover{background:#1ebe5d}
+
+/* ══════════════════════════════════════════
+   CONTACT — MOBILE RESPONSIVE  (320 – 768px)
+   ══════════════════════════════════════════ */
+@media(max-width:768px){
+  /* Overflow guard + 120px top (overlay gives 90px + 30px below = 120px) */
+  #s-contact{overflow-x:hidden}
+  .cx-wrap{overflow-x:hidden;padding-top:30px;padding-bottom:100px;max-width:100%}
+
+  /* Section header → centered */
+  .cx-hdr{margin-bottom:36px;text-align:center}
+  .cx-hdr-eyebrow{justify-content:center}
+  .cx-hdr h2{font-size:clamp(38px,8vw,56px)}
+  .cx-hdr-copy{max-width:100%}
+
+  /* 50/50 grid → single column, studio info FIRST */
+  .cx-grid{grid-template-columns:1fr;gap:40px}
+  .cx-info-col{order:-1}
+  .cx-form-col{order:0}
+
+  /* Info headline */
+  .cx-info-headline{font-size:clamp(24px,6.5vw,38px)}
+  .cx-info-copy{margin-bottom:20px;font-size:12px}
+
+  /* Address card → rounded + glassy */
+  .cx-addr-card{border-radius:24px;padding:28px 22px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .cx-addr-line{font-size:18px}
+  .cx-addr-footer{flex-direction:column;align-items:flex-start;gap:16px}
+  .cx-gps{align-items:flex-start}
+  .cx-gps-coords{text-align:left}
+
+  /* 3 contact cards → stack vertically */
+  .cx-3cards{grid-template-columns:1fr}
+  .cx-3card{border-right:none;border-bottom:1px solid rgba(176,141,87,.1)}
+  .cx-3card:last-child{border-bottom:none}
+  .cx-3card-val{font-size:15px}
+
+  /* CTA row (Call / WhatsApp) → column */
+  .cx-cta-row{flex-direction:column;gap:10px}
+  .cx-cta-row a{height:52px;flex:none;width:100%}
+
+  /* Form pair → single column */
+  .cx-pair{grid-template-columns:1fr;gap:0}
+  .cx-field{margin-bottom:16px}
+
+  /* Fields → 60px height */
+  .cx-inp,.cx-sel{height:60px;padding:22px 18px 6px}
+  .cx-area{min-height:140px;padding-top:22px}
+
+  /* Floating label re-anchor for 60px fields */
+  .cx-lbl{top:50%}
+  .cx-inp:focus ~ .cx-lbl,
+  .cx-inp:not(:placeholder-shown) ~ .cx-lbl,
+  .cx-area:focus ~ .cx-lbl,
+  .cx-area:not(:placeholder-shown) ~ .cx-lbl,
+  .cx-sel:focus ~ .cx-lbl,
+  .cx-sel.has-val ~ .cx-lbl{top:8px;transform:none;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:#B08D57}
+
+  /* Buttons */
+  .cx-sub{height:56px;width:100%}
+  .cx-wa-btn{height:52px;width:100%}
+  .cx-actions{gap:12px}
+
+  /* Topographic band → shorter + rounded */
+  .cx-topo{height:300px!important;border-radius:20px;overflow:hidden;margin:40px 0 0!important}
+  .cx-topo-glass{min-width:auto;width:calc(100% - 48px);padding:20px 24px}
+
+  /* Show pinned WA bar, hide round float */
+  #cx-wa-mob{display:flex}
+  #wa{display:none!important}
+}
+
+/* ── Tablet 769 – 1024px ── */
+@media(min-width:769px) and (max-width:1024px){
+  .cx-3cards{grid-template-columns:1fr 1fr}
+  .cx-3card:nth-child(2){border-right:none}
+  .cx-grid{gap:48px}
+}
+
 /* ── TOAST ── */
 #toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,80px);z-index:10001;background:rgba(9,9,7,.96);border:1px solid var(--gold);padding:16px 26px;color:var(--ink);font-size:11px;letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:12px;backdrop-filter:blur(8px);transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .5s;opacity:0;max-width:90vw}
 #toast.show{transform:translate(-50%,0);opacity:1}
@@ -873,7 +958,7 @@ a.cx-topo-glass:hover .cx-topo-map-hint{color:#B08D57}
         </div>
 
         <!-- CTAs -->
-        <div style="display:flex;gap:10px;margin-bottom:24px" class="cx-reveal" style="--cd:.36s">
+        <div class="cx-cta-row cx-reveal" style="display:flex;gap:10px;margin-bottom:24px;--cd:.36s">
           <a id="lnk-call" href="tel:+919390765984" style="flex:1;display:flex;align-items:center;justify-content:center;height:48px;border:1px solid rgba(176,141,87,.25);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(244,239,231,.65);transition:all .4s;font-family:'Jost',sans-serif;position:relative;overflow:hidden">
             <span style="position:relative;z-index:1">Call Studio</span>
           </a>
@@ -919,6 +1004,12 @@ a.cx-topo-glass:hover .cx-topo-map-hint{color:#B08D57}
 
 <!-- TOAST -->
 <div id="toast"><span id="toast-icon">✓</span><span id="toast-msg">Sent</span></div>
+
+<!-- MOBILE WHATSAPP PINNED BAR (mobile only) -->
+<a id="cx-wa-mob" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.86 11.86 0 0012.07 0C5.46 0 .12 5.34.12 11.94c0 2.1.55 4.16 1.6 5.97L0 24l6.27-1.65a11.97 11.97 0 005.79 1.48h.01c6.6 0 11.94-5.34 11.94-11.94 0-3.19-1.24-6.18-3.49-8.41z"/></svg>
+  WhatsApp Us
+</a>
 
 <!-- WHATSAPP FLOAT -->
 <a id="wa" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
@@ -1406,7 +1497,7 @@ const CFG = window.VIRATA_CONFIG;
 // Apply config to all contact touch-points on load
 (function applyConfig(){
   const waLink = `https://wa.me/${CFG.WHATSAPP_NUMBER}`;
-  ['#wa','#lnk-wa','#soc-wa'].forEach(sel => { const el = $(sel); if(el) el.href = waLink; });
+  ['#wa','#lnk-wa','#soc-wa','#cx-wa-mob'].forEach(sel => { const el = $(sel); if(el) el.href = waLink; });
   const tel = `tel:${CFG.STUDIO_PHONE_RAW}`;
   ['#lnk-tel','#lnk-call'].forEach(sel => { const el = $(sel); if(el){ el.href = tel; if(el.id==='lnk-tel') el.textContent = CFG.STUDIO_PHONE; }});
   const mail = $('#lnk-mail'); if(mail){ mail.href = `mailto:${CFG.STUDIO_EMAIL}`; mail.textContent = CFG.STUDIO_EMAIL; }

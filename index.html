@@ -42,14 +42,25 @@
   "image": "assets/portfolio/pradhi/01-reception-hero.jpg",
   "telephone": "+91-93907-65984",
   "email": "info@viratainteriors.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "12th Floor, Vasavi Skycity, Gachibowli",
-    "addressLocality": "Hyderabad",
-    "addressRegion": "Telangana",
-    "postalCode": "500032",
-    "addressCountry": "IN"
-  },
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "name": "Corporate Office",
+      "streetAddress": "12th Floor, Vasavi Skycity, Gachibowli",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500032",
+      "addressCountry": "IN"
+    },
+    {
+      "@type": "PostalAddress",
+      "name": "Factory & Workshop",
+      "streetAddress": "Suraram Village, Qutbullapur Village",
+      "addressLocality": "Medchal",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    }
+  ],
   "serviceType": ["Corporate Office Design","Retail Fit-out","Pharma Facility Design","Healthcare Interior Design","Hospitality Interior Design","Commercial Façade","Turnkey Commercial Execution"]
 }
 </script>
@@ -822,10 +833,17 @@ a.cx-topo-glass:hover .cx-topo-map-hint{color:#B08D57}
 
         <!-- Glass address card -->
         <div class="cx-addr-card cx-reveal" style="--cd:.22s">
-          <div class="cx-addr-lbl">Studio Address</div>
+          <!-- Corporate Office -->
+          <div class="cx-addr-lbl">Corporate Office</div>
           <div class="cx-addr-line">12th Floor, Vasavi Skycity</div>
-          <div class="cx-addr-line">Financial District, Gachibowli</div>
-          <div class="cx-addr-line cx-addr-city">Hyderabad &nbsp;500 032</div>
+          <div class="cx-addr-line">Gachibowli, Hyderabad – 500 032</div>
+          <div class="cx-addr-line cx-addr-city">Telangana</div>
+          <!-- Factory -->
+          <div style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(176,141,87,.1)">
+            <div class="cx-addr-lbl">Factory &amp; Workshop</div>
+            <div class="cx-addr-line">Suraram Village, Qutbullapur</div>
+            <div class="cx-addr-line cx-addr-city">Medchal District, Telangana</div>
+          </div>
           <div class="cx-addr-footer">
             <div class="cx-addr-hours">
               <strong>Monday – Saturday</strong>

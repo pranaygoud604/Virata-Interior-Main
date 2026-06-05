@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── SEO ── -->
+<title>Virata — Luxury Interior & Exterior Designers Hyderabad | Residential, Commercial, Villa Design</title>
+<meta name="description" content="Virata is an award-winning luxury interior & exterior design studio based in Hyderabad. Residential interior design, villa design, turnkey interiors, commercial spaces, landscape & 3D visualization. Est. 2012 · 340+ projects · 28 awards.">
+<meta name="keywords" content="Luxury Interior Designers Hyderabad, Residential Interior Design, Commercial Interiors, Villa Design, Turnkey Interiors, Exterior Design, Landscape Design, 3D Visualization, Banjara Hills, Jubilee Hills">
+<meta name="author" content="Virata Design Studio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://viratainteriors.com/">
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Virata — Luxury Interior & Exterior Designers Hyderabad">
+<meta property="og:description" content="Award-winning luxury design studio. Residential · Commercial · Villas · Turnkey · 3D Visualization. Est. 2012.">
+<meta property="og:image" content="https://viratainteriors.com/og.jpg">
+<meta property="og:url" content="https://viratainteriors.com/">
+<meta property="og:site_name" content="Virata">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Virata — Luxury Interior & Exterior Designers Hyderabad">
+<meta name="twitter:description" content="Award-winning luxury design studio. Est. 2012.">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "InteriorDesignBusiness",
+  "name": "Virata Design Studio",
+  "description": "Luxury interior and exterior design studio specializing in residential, commercial, and villa projects.",
+  "image": "https://viratainteriors.com/og.jpg",
+  "telephone": "+91-40-6677-8899",
+  "email": "studio@viratadesign.in",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Road No. 12, Banjara Hills",
+    "addressLocality": "Hyderabad",
+    "postalCode": "500034",
+    "addressRegion": "Telangana",
+    "addressCountry": "IN"
+  },
+  "founder": "Aarav Reddy",
+  "foundingDate": "2012",
+  "areaServed": ["Hyderabad","Bangalore","Chennai","Mumbai","Delhi"],
+  "sameAs": ["https://instagram.com/virata.studio","https://linkedin.com/company/virata-studio"]
+}
+</script>
+
+<!-- Fonts (preload for performance) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<!-- CSS (external for caching) -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Preload critical external libraries -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" as="script">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" as="script">
+
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loader">
+  <div class="loader-logo">VIRATA<span>.</span></div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+  <div class="loader-copy">Crafting Spaces</div>
+</div>
+
+<!-- Progress Bar -->
+<div id="prog"></div>
+
+<!-- 3D Canvas -->
+<canvas id="canvas3d"></canvas>
+
+<!-- Custom Cursor -->
+<div id="cur"></div>
+<div id="cur-r"></div>
+
+<!-- Navigation -->
+<nav id="nav">
+  <div class="n-logo">
+    <span class="nlw">V</span><span>IRATA</span>
+  </div>
+  <ul class="n-links" id="nlinks">
+    <li><a data-sec="0">Home</a></li>
+    <li><a data-sec="1">Expertise</a></li>
+    <li><a data-sec="2">Work</a></li>
+    <li><a data-sec="3">Achievements</a></li>
+    <li><a data-sec="4">Testimonials</a></li>
+    <li><a data-sec="5">Studio</a></li>
+    <li><a data-sec="6">Contact</a></li>
+  </ul>
+  <button class="n-cta">Get Started</button>
+  <div class="n-burger" id="burger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Section Dots (Desktop) -->
+<div id="dots">
+  <div class="dot-w" data-sec="0"><span class="dot-lbl">Home</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="1"><span class="dot-lbl">Expertise</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="2"><span class="dot-lbl">Work</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="3"><span class="dot-lbl">Achievements</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="4"><span class="dot-lbl">Testimonials</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="5"><span class="dot-lbl">Studio</span><div class="dot-c"></div></div>
+  <div class="dot-w" data-sec="6"><span class="dot-lbl">Contact</span><div class="dot-c"></div></div>
+</div>
+
+<!-- Section Indicators -->
+<div id="s-label"></div>
+<div id="s-ind"></div>
+
+<!-- Sections (Content Overlays) -->
+<div class="s-overlay" id="s-hero">
+  <div class="hero-wrap">
+    <h1 class="h1">Where <em>Space</em> Becomes <em>Art</em></h1>
+    <p class="h-sub">Luxury interior design that transcends trends. Bespoke interiors for discerning clients across residential, commercial, and villa projects.</p>
+    <div class="h-btns">
+      <button class="btn-p" data-sec="6"><span>Start Your Project</span></button>
+      <button class="btn-p btn-sec"><span>View Portfolio</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="s-overlay" id="s-services">
+  <div class="srv-wrap">
+    <div class="s-tag">Our Expertise</div>
+    <h2 class="s-h2">Comprehensive <em>Design Solutions</em></h2>
+    <div class="srv-grid">
+      <div class="srv-item">
+        <h3>Residential Interiors</h3>
+        <p>Luxury homes that reflect your lifestyle</p>
+      </div>
+      <div class="srv-item">
+        <h3>Villa Design</h3>
+        <p>Bespoke villas with architectural excellence</p>
+      </div>
+      <div class="srv-item">
+        <h3>Commercial Spaces</h3>
+        <p>Corporate interiors that inspire productivity</p>
+      </div>
+      <div class="srv-item">
+        <h3>Turnkey Solutions</h3>
+        <p>End-to-end project management</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-overlay" id="s-portfolio">
+  <div class="port-wrap">
+    <div class="s-tag">Selected Work</div>
+    <h2 class="s-h2">Award-Winning <em>Projects</em></h2>
+    <div class="port-grid">
+      <div class="port-card">
+        <div class="p-img"></div>
+        <h4>Jubilee Hills Residence</h4>
+      </div>
+      <div class="port-card">
+        <div class="p-img"></div>
+        <h4>Banjara Commercial Space</h4>
+      </div>
+      <div class="port-card">
+        <div class="p-img"></div>
+        <h4>Villa Serenity</h4>
+      </div>
+      <div class="port-card">
+        <div class="p-img"></div>
+        <h4>Corporate Headquarters</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-overlay" id="s-stats">
+  <div class="stats-wrap">
+    <div class="s-tag">Trust Quantified</div>
+    <h2 class="s-h2">By The <em>Numbers</em></h2>
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-num" data-target="340">0</div>
+        <div class="stat-label">Projects Delivered</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="28">0</div>
+        <div class="stat-label">National Awards</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="12">0</div>
+        <div class="stat-label">Years Excellence</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" data-target="98">0</div>
+        <div class="stat-label">Client Satisfaction %</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-overlay" id="s-testimonials">
+  <div class="testi-wrap">
+    <div class="s-tag">Client Voices</div>
+    <h2 class="s-h2">What Our Clients <em>Say</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-text">"Virata transformed our vision into reality. The attention to detail is unmatched."</p>
+        <div class="testi-author">— Rajesh K., Hyderabad</div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">"Professional, creative, and delivered on schedule. Highly recommended."</p>
+        <div class="testi-author">— Priya Sharma, Mumbai</div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">"Our office space now reflects our brand perfectly. The design is timeless."</p>
+        <div class="testi-author">— Aman Verma, Bangalore</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-overlay" id="s-studio">
+  <div class="studio-wrap">
+    <div class="s-tag">The Studio</div>
+    <h2 class="s-h2">Established <em>2012</em></h2>
+    <p class="studio-bio">Virata Design Studio is an award-winning luxury interior and exterior design practice based in Hyderabad. We specialize in bespoke design solutions for residential, commercial, and villa projects across India.</p>
+    <div class="studio-grid">
+      <div class="studio-item">
+        <h4>Founded</h4>
+        <p>2012</p>
+      </div>
+      <div class="studio-item">
+        <h4>Team Size</h4>
+        <p>25+ Designers</p>
+      </div>
+      <div class="studio-item">
+        <h4>Location</h4>
+        <p>Banjara Hills, Hyderabad</p>
+      </div>
+      <div class="studio-item">
+        <h4>Specialization</h4>
+        <p>Luxury Design</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="s-overlay" id="s-contact">
+  <div class="contact-wrap">
+    <div class="s-tag">Begin a Conversation</div>
+    <h2 class="s-h2">Let's Create <em>Together</em></h2>
+    <form id="contactForm" class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+      <button type="submit" class="btn-p"><span>Send Message</span></button>
+    </form>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +91-40-6677-8899</p>
+      <p><strong>Email:</strong> studio@viratadesign.in</p>
+      <p><strong>Studio:</strong> Road No. 12, Banjara Hills, Hyderabad 500034</p>
+    </div>
+  </div>
+</div>
+
+<!-- External Scripts (async for non-blocking) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" async></script>
+
+<!-- Main Script (deferred to load after DOM) -->
+<script src="script.js" defer></script>
+
+</body>
+</html>

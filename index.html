@@ -350,6 +350,10 @@ body.is-mobile #cur,body.is-mobile #cur-r{display:none}
 .cx-topo-eyebrow{font-size:8px;letter-spacing:.42em;text-transform:uppercase;color:#B08D57;font-family:'Jost',sans-serif;margin-bottom:14px}
 .cx-topo-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#F5F5F5;line-height:1.1;margin-bottom:6px}
 .cx-topo-addr{font-family:'Jost',sans-serif;font-size:10px;color:#A0A0A0;letter-spacing:.09em;line-height:1.8}
+.cx-topo-map-hint{font-family:'Jost',sans-serif;font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:rgba(176,141,87,0);margin-top:10px;transition:color .4s}
+a.cx-topo-glass{cursor:pointer;text-decoration:none;transition:border-color .4s,box-shadow .4s,transform .4s}
+a.cx-topo-glass:hover{border-color:rgba(176,141,87,.55);box-shadow:0 0 60px rgba(176,141,87,.15),0 20px 40px rgba(0,0,0,.6);transform:translate(-50%,-52%)}
+a.cx-topo-glass:hover .cx-topo-map-hint{color:#B08D57}
 .cx-topo-corner{position:absolute;width:18px;height:18px;z-index:3}
 .cx-topo-corner-tl{top:20px;left:20px;border-top:1px solid #B08D57;border-left:1px solid #B08D57}
 .cx-topo-corner-tr{top:20px;right:20px;border-top:1px solid #B08D57;border-right:1px solid #B08D57}
@@ -884,11 +888,12 @@ body.is-mobile #cur,body.is-mobile #cur-r{display:none}
       <div class="cx-topo-corner cx-topo-corner-tr"></div>
       <div class="cx-topo-corner cx-topo-corner-bl"></div>
       <div class="cx-topo-corner cx-topo-corner-br"></div>
-      <div class="cx-topo-glass">
+      <a class="cx-topo-glass" href="https://www.google.com/maps?q=17.4435,78.3772" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">
         <div class="cx-topo-eyebrow">Hyderabad · Financial District</div>
         <div class="cx-topo-name">Vasavi Skycity</div>
         <div class="cx-topo-addr">12th Floor · Gachibowli · 500 032</div>
-      </div>
+        <div class="cx-topo-map-hint">↗ Open in Maps</div>
+      </a>
     </div>
 
   </div><!-- /.cx-wrap -->
